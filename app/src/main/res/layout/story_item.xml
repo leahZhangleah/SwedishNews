@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/story_item_horizontal_padding"
+    android:layout_marginRight="@dimen/story_item_horizontal_padding">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/story_item_vertical_padding2">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_access_time_black_24dp"
+            android:id="@+id/clock"
+            android:layout_marginRight="@dimen/story_item_vertical_padding2" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/publish_date"
+            tools:text = "Feb 2"
+
+            android:textColor="@color/sub_text_color"
+            android:layout_toRightOf="@id/clock"
+            android:paddingRight="@dimen/story_item_vertical_padding2"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/publish_time"
+            tools:text = "19:05"
+            android:textColor="@color/sub_text_color"
+            android:layout_toRightOf="@id/publish_date"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/story_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:paddingTop="@dimen/story_item_vertical_padding2"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        tools:text="Nanodegree scholarship from google in udacity is now open for application" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contributor"
+            tools:text = "By Leah Humlelu"
+            android:paddingTop="@dimen/story_item_vertical_padding2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/section"
+            tools:text = "life and style"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/section_bg"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Swedish News</string>
+    <string name="invalid_story_url">Cannot retrieve URL of this story</string>
+    <string name="by">By </string>
+    <string name="no_news">No news found...Please update later</string>
+    <string name="no_internet">No Internet connection...</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="story_item_vertical_padding">10dp</dimen>
+    <dimen name="story_item_vertical_padding2">5dp</dimen>
+    <dimen name="story_item_horizontal_padding">16dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="section_bg_radius">4dp</dimen>
+    <dimen name="empty_view_text_size">20sp</dimen>
+</resources>
