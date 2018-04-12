@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:title="@string/settings_query_title"
+        android:defaultValue="@string/setting_query_default_value"
+        android:key="@string/settings_query_key"
+        android:selectAllOnFocus="true"
+        android:summary="@string/settings_query_hint"/>
+    <CheckBoxPreference
+        android:title="@string/settings_filter_office_title"
+        android:defaultValue="@string/settings_filter_office_default_value"
+        android:key="@string/settings_filter_office_key"
+        android:summary="@string/settings_filter_office_summary"/>
+    <ListPreference
+        android:title="@string/settings_office_title"
+        android:defaultValue="@string/settings_office_UK_value"
+        android:key="@string/settings_office_key"
+        android:summary="@string/settings_office_summary"
+        android:entries="@array/settings_office_entries"
+        android:entryValues="@array/settings_office_entryvalues"
+        android:dependency="@string/settings_filter_office_key"/>
+    <ListPreference
+        android:title="@string/settings_order_by_title"
+        android:defaultValue="@string/settings_order_by_newest_value"
+        android:entries="@array/settings_order_by_entries"
+        android:entryValues="@array/settings_order_by_entryvalues"
+        android:key="@string/settings_order_by_key"/>
+
+
+</PreferenceScreen>

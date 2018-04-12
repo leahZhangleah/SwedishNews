@@ -4,4 +4,51 @@
     <string name="by">By </string>
     <string name="no_news">No news found...Please update later</string>
     <string name="no_internet">No Internet connection...</string>
+    <string name="menu_settings">Settings</string>
+    <string name="settings_order_by_title">Order By</string>
+    <string name="settings_order_by_key">order_by</string>
+    <string name="settings_order_by_relevance_key">Relevance</string>
+    <string name="settings_order_by_relevance_value">relevance</string>
+    <string name="settings_order_by_newest_key">Newest</string>
+    <string name="settings_order_by_newest_value">newest</string>
+    <string name="settings_order_by_oldest_key">Oldest</string>
+    <string name="settings_order_by_oldest_value">oldest</string>
+    <string name="settings_query_title">Search</string>
+    <string name="setting_query_default_value">Sweden</string>
+    <string name="settings_query_key">keyword</string>
+    <string name="settings_query_hint">Type in keywords to search for news you want to read</string>
+    <string name="settings_filter_office_title">Filter Office</string>
+    <string name="settings_filter_office_default_value">false</string>
+    <string name="settings_filter_office_key">officeFilter</string>
+    <string name="settings_filter_office_summary">Do you want to select news\' office?</string>
+    <string name="settings_office_title">Office</string>
+    <string name="settings_office_key">productionOffice</string>
+    <string name="settings_office_summary">Select one office you want to read news at</string>
+    <string name="settings_office_UK_key">UK</string>
+    <string name="settings_office_UK_value">UK</string>
+    <string name="settings_office_US_key">US</string>
+    <string name="settings_office_US_value">US</string>
+    <string name="settings_office_AUS_key">AUS</string>
+    <string name="settings_office_AUS_value">AUS</string>
+
+    <string-array name="settings_order_by_entries">
+        <item>@string/settings_order_by_newest_key</item>
+        <item>@string/settings_order_by_oldest_key</item>
+        <item>@string/settings_order_by_relevance_key</item>
+    </string-array>
+    <string-array name="settings_order_by_entryvalues">
+        <item>@string/settings_order_by_newest_value</item>
+        <item>@string/settings_order_by_oldest_value</item>
+        <item>@string/settings_order_by_relevance_value</item>
+    </string-array>
+    <string-array name="settings_office_entries">
+        <item>@string/settings_office_AUS_key</item>
+        <item>@string/settings_office_UK_key</item>
+        <item>@string/settings_office_US_key</item>
+    </string-array>
+    <string-array name="settings_office_entryvalues">
+        <item>@string/settings_office_AUS_value</item>
+        <item>@string/settings_office_UK_value</item>
+        <item>@string/settings_office_US_value</item>
+    </string-array>
 </resources>

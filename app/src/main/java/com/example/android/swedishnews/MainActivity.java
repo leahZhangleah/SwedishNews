@@ -9,6 +9,8 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -20,7 +22,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<Story>> {
     private ArrayList<Story> stories = new ArrayList<>();
-    private static final String URL_TO_REQUEST_CONTENT = "http://content.guardianapis.com/search?format=json&from-date=2018-01-01&order-by=newest&page-size=200&show-tags=contributor&q=sweden&api-key=test";
+    private static final String API_KEY = "6b0aad99-4908-4a0e-94a3-770be261d469";
+    private static final String URL_TO_REQUEST_CONTENT = "http://content.guardianapis.com/search?format=json&from-date=2018-01-01&order-by=newest&page-size=200&show-tags=contributor&q=sweden&api-key=6b0aad99-4908-4a0e-94a3-770be261d469";
     private static int LOADER_MANAGER_ID = 0;
     StoryAdapter adapter;
     ProgressBar progressBar;
@@ -83,5 +86,21 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoaderReset(Loader<ArrayList<Story>> loader) {
         adapter.clear();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.settings, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_settings){
+            Intent intent = new Intent(this,SettingsActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
