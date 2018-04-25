@@ -30,6 +30,15 @@
     <string name="settings_office_US_value">US</string>
     <string name="settings_office_AUS_key">AUS</string>
     <string name="settings_office_AUS_value">AUS</string>
+    
+    <string name="settings_from_time_title">From Time</string>
+    <string name="settings_from_time_key">fromTime</string>
+    <string name="settings_from_time_default_value">2018-01-01</string>
+
+    <string name="settings_end_time_title">End Time</string>
+    <string name="settings_end_time_key">endTime</string>
+    <string name="settings_positive_btn_txt">Set</string>
+    <string name="settings_negative_btn_txt">Cancel</string>
 
     <string-array name="settings_order_by_entries">
         <item>@string/settings_order_by_newest_key</item>

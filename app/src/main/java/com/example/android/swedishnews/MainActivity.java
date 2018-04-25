@@ -4,9 +4,11 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,11 +25,12 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<Story>> {
     private ArrayList<Story> stories = new ArrayList<>();
     private static final String API_KEY = "6b0aad99-4908-4a0e-94a3-770be261d469";
-    private static final String URL_TO_REQUEST_CONTENT = "http://content.guardianapis.com/search?format=json&from-date=2018-01-01&order-by=newest&page-size=200&show-tags=contributor&q=sweden&api-key=6b0aad99-4908-4a0e-94a3-770be261d469";
+    private String url = "http://content.guardianapis.com/search";
     private static int LOADER_MANAGER_ID = 0;
     StoryAdapter adapter;
     ProgressBar progressBar;
     TextView emptyView;
+    String office = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +72,34 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<ArrayList<Story>> onCreateLoader(int id, Bundle args) {
-        return new StoryTaskLoader(this,URL_TO_REQUEST_CONTENT);
+        //get preferences values from setting
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String query = sharedPreferences.getString(getString(R.string.settings_query_key),getString(R.string.setting_query_default_value));
+        boolean filterOffice = sharedPreferences.getBoolean(getString(R.string.settings_filter_office_key),false);
+        if (filterOffice){
+            office = sharedPreferences.getString(getString(R.string.settings_office_key),getString(R.string.settings_office_UK_value));
+        }
+        String order_by = sharedPreferences.getString(getString(R.string.settings_order_by_key),getString(R.string.settings_order_by_newest_value));
+        String from_time = sharedPreferences.getString(getString(R.string.settings_from_time_key),getString(R.string.settings_from_time_default_value));
+        String end_time = sharedPreferences.getString(getString(R.string.settings_end_time_key),getString(R.string.settings_from_time_default_value));
+
+        //build request url
+        Uri baseUri = Uri.parse(url);
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+        uriBuilder.appendQueryParameter("format","json");
+        uriBuilder.appendQueryParameter("order-by",order_by);
+        uriBuilder.appendQueryParameter("page-size","200");
+        uriBuilder.appendQueryParameter("show-tags","contributor");
+        uriBuilder.appendQueryParameter("q",query);
+        uriBuilder.appendQueryParameter("api-key",API_KEY);
+        uriBuilder.appendQueryParameter("from-date",from_time);
+        uriBuilder.appendQueryParameter("to-date",end_time);
+        if (filterOffice){
+            uriBuilder.appendQueryParameter("production-office",office);
+        }
+
+        return new StoryTaskLoader(this,uriBuilder.toString());
+
     }
 
     @Override
