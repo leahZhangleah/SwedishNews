@@ -4,6 +4,10 @@ It has info about how to build up uri, how to make http request, how to read jso
 It also contains custom setting preference, which can change uri to load different news into app.
 I have built a custom timepicker preference in this app, which can be refered to in the future if I want to build other kind of preference.
 
+<img src="/imges/swedishnews1.png" width="120" height="213"/><img src="/imges/swedishnews2.png" width="120" height="213"/><img src="/imges/swedishnews3.png" width="120" height="213"/><img src="/imges/swedishnews4.png" width="120" height="213"/>
+
 Things to improve:
+
 1) I haven't tried navigation drawer, which i can design based on the guardian website
+
 2) How to drag down to update the data
